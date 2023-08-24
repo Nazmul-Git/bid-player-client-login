@@ -8,6 +8,7 @@ import {
 import Home from './Components/Home/Home.jsx';
 import Players from './Components/Players/Players.jsx';
 import Login from './Components/Login/Login';
+import PlayerDetails from './Components/PlayerDetails/PlayerDetails';
 // import PlayerDetails from './Components/PlayerDetails/PlayerDetails.jsx';
 const router=createBrowserRouter([
   {
@@ -19,10 +20,15 @@ const router=createBrowserRouter([
         element:<Login></Login>
       },
       {
-        path:'/players/',
-        element:<Players></Players>
+        path:'/players',
+        element:<Players></Players>,
+        loader:()=>fetch('http://localhost:5000/players')
       },
-      
+      {
+        path:'/players/:id',
+        element:<PlayerDetails></PlayerDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/players/${params.id}`)
+      }
     ]
   }
 ])

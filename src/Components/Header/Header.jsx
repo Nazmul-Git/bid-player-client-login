@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='text-2xl flex gap-10 p-10'>
+        <div className='text-2xl flex gap-10 p-12 text-blue-600'>
             <Link to='/'>Home</Link>
             <Link to='/players'>Players</Link>
             <Link to='/about'>About</Link>
